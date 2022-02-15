@@ -6,7 +6,7 @@ const User = require('../models/user');
 const router = new express.Router();
 
 // Create user
-router.post('/users', async (req, res) => {
+router.post('/register', async (req, res) => {
   const user = new User(req.body);
 
   try {
@@ -19,7 +19,7 @@ router.post('/users', async (req, res) => {
 });
 
 // Login route
-router.post('/users/login', async (req, res) => {
+router.post('/login', async (req, res) => {
   try {
     const user = await User.findByCredentials(
       req.body.email,
