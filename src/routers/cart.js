@@ -3,10 +3,9 @@ const Cart = require('../models/cart')
 const auth = require('../middleware/auth')
 const router = new express.Router()
 
-//Add to cart
 router.post('/cart', async (req, res) => {
     const cart = new Cart({
-        ...req.body, 
+        ...req.body,
         owner: req.user._id
     })
 

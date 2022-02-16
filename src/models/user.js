@@ -6,14 +6,12 @@ const userSchema = new mongoose.Schema({
     firstname: {
         type: String,
         unique: true,
-        // required: true,
         trim: true,
         lowercase: true
     },
     lastname: {
         type: String,
         unique: true,
-        // required: true,
         trim: true,
         lowercase: true
     },
@@ -91,7 +89,6 @@ userSchema.statics.findByCredentials = async (email, password) => {
     return user
 }
 
-//hash the plain text password before saving
 userSchema.pre('save', async function (next) {
     const user = this
 
